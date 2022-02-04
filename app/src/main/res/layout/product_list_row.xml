@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="product"
+    type="com.example.mye_commerceuserapp.models.ProductsModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/productListCardView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        android:elevation="4dp"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        app:contentPadding="8dp"
+        android:focusable="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:alpha="0.5"
+                android:background="@color/black"
+                android:padding="4dp" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addToCartBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:elevation="0dp"
+                android:src="@drawable/shopping_cart"
+                app:backgroundTint="#0000ffff"
+                app:fabSize="mini"
+                app:tint="#4CAF50" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/removeFromCartBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:elevation="0dp"
+                android:src="@drawable/shopping_cart"
+                app:backgroundTint="#0000ffff"
+                app:fabSize="mini"
+                app:tint="#F44336" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/favoriteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="0dp"
+                android:src="@drawable/favourite_gap"
+                app:backgroundTint="#0000ffff"
+                app:tint="@color/white"
+                app:fabSize="mini" />
+
+            <ImageView
+                android:id="@+id/row_productIV"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/demo_product"
+                app:setImageUrl="@{product.productImageUrl}" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/row_productIV"
+                android:id="@+id/row_productNameTV"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp"
+                android:text="@{product.productName}"
+                tools:text="Product Name"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/row_productNameTV"
+                android:id="@+id/row_productPriceTV"
+                android:layout_marginStart="5dp"
+                android:text="@{`৳`+product.price}"
+                android:textSize="14sp"
+                tools:text="৳200"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
