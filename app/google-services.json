@@ -36,9 +36,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:393393904710:android:5cab49de6cf8363e8b7e47",
+        "mobilesdk_app_id": "1:393393904710:android:b1408d332b9579af8b7e47",
         "android_client_info": {
-          "package_name": "com.example.mye_commerceuserapp"
+          "package_name": "com.jhtuhin.mye_commerceuserapp"
         }
       },
       "oauth_client": [

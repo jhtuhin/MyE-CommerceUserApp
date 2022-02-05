@@ -6,7 +6,7 @@
     <data>
 <variable
     name="product"
-    type="com.example.mye_commerceuserapp.models.ProductsModel" />
+    type="com.jhtuhin.mye_commerceuserapp.models.ProductsModel" />
     </data>
 
     <androidx.cardview.widget.CardView

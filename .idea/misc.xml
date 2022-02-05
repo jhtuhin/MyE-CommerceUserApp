@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable-v24/add_circle.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable-v24/remove_circle.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable/demo_product.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable/email.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable/lock.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/drawable/nav_head_bar.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/activity_main.xml" value="0.165625" />
+        <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/cart_item_row.xml" value="0.1796875" />
+        <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/fragment_cart_list.xml" value="0.1796875" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/fragment_product_list.xml" value="0.1796875" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/fragment_user_login.xml" value="0.22" />
         <entry key="..\:/Users/DreaM/Desktop/Jahidul Hasan Tuhin(PB03020)/MyECommerceUserApp/app/src/main/res/layout/fragment_user_profile.xml" value="0.1796875" />
