@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.WriteBatch;
 import com.jhtuhin.mye_commerceuserapp.callbacks.OnActionCompleteListener;
 import com.jhtuhin.mye_commerceuserapp.models.CartModel;
 import com.jhtuhin.mye_commerceuserapp.models.ProductsModel;
@@ -26,6 +28,7 @@ public class ProductViewModel extends ViewModel {
     public MutableLiveData<List<ProductsModel>> productsListLiveData =new MutableLiveData<>();
     public MutableLiveData<List<UserProductModel>> userProductListLiveData=new MutableLiveData<>();
     public MutableLiveData<List<CartModel>> cartListLiveData = new MutableLiveData<>();
+    public List<CartModel> cartModelList = new ArrayList<>();
 
     public ProductViewModel(){
         getAllCategories();
@@ -55,6 +58,24 @@ public class ProductViewModel extends ViewModel {
                 }).addOnFailureListener(e -> {
             completeListener.onFailure();
         });
+    }
+
+    public void updateCartQuantity(String uid, List<CartModel> cartModels) {
+        final WriteBatch batch = db.batch();
+        for (CartModel c : cartModels) {
+            final DocumentReference doc =
+                    db.collection(UserConstants.dbCollections.COLLECTION_USER)
+                            .document(uid)
+                            .collection(UserConstants.dbCollections.COLLECTION_CART)
+                            .document(c.getProductId());
+            batch.update(doc, "productQuantity", c.getProductQuantity());
+        }
+        batch.commit().addOnSuccessListener(unused -> {
+
+        })
+                .addOnFailureListener(unused -> {
+
+                });
     }
 
     private void getAllCategories(){
@@ -169,5 +190,11 @@ public class ProductViewModel extends ViewModel {
                 });
         return productLiveData;
     }
-
+    public double calculateTotalPrice(List<CartModel> cartModels) {
+        double total = 0.0;
+        for (CartModel c : cartModels) {
+            total += c.getProductPrice() * c.getProductQuantity();
+        }
+        return total;
+    }
 }

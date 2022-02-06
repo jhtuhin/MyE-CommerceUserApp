@@ -95,6 +95,4 @@ public class ProductListAdapter  extends ListAdapter<UserProductModel, ProductLi
             return oldItem.getProductID().equals(newItem.getProductID());
         }
     }
-
-
 }

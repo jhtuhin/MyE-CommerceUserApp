@@ -39,7 +39,11 @@
         android:id="@+id/cartListFragment"
         android:name="com.jhtuhin.mye_commerceuserapp.ui.CartListFragment"
         android:label="fragment_cart_list"
-        tools:layout="@layout/fragment_cart_list" />
+        tools:layout="@layout/fragment_cart_list" >
+        <action
+            android:id="@+id/cartList_to_checkout_action"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.jhtuhin.mye_commerceuserapp.ui.CheckoutFragment"
