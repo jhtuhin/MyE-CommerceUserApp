@@ -5,6 +5,15 @@ public class UserModel {
     private String userId;
     private String userEmail;
     private String userPhoto;
+    private String deliveryAddress;
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
 
     public UserModel() {
     }

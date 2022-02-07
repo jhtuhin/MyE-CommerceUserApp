@@ -48,5 +48,27 @@
         android:id="@+id/checkoutFragment"
         android:name="com.jhtuhin.mye_commerceuserapp.ui.CheckoutFragment"
         android:label="fragment_checkout"
-        tools:layout="@layout/fragment_checkout" />
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/checkout_to_confirmation_action"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.jhtuhin.mye_commerceuserapp.ui.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/confirm_to_orderSuccessful_action"
+            app:destination="@id/orderSuccessfulFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderSuccessfulFragment"
+        android:name="com.jhtuhin.mye_commerceuserapp.ui.OrderSuccessfulFragment"
+        android:label="fragment_order_successful"
+        tools:layout="@layout/fragment_order_successful" >
+        <action
+            android:id="@+id/orderSuccessful_to_productList_action"
+            app:destination="@id/productListFragment" />
+    </fragment>
 </navigation>

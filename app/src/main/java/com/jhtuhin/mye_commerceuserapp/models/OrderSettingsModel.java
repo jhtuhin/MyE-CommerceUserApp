@@ -1,0 +1,40 @@
+package com.jhtuhin.mye_commerceuserapp.models;
+
+public class OrderSettingsModel {
+    private int deliveryCharge;
+    private double discount;
+    private double vat;
+
+    public OrderSettingsModel() {
+    }
+
+    public OrderSettingsModel(int deliveryCharge, double discount, double vat) {
+        this.deliveryCharge = deliveryCharge;
+        this.discount = discount;
+        this.vat = vat;
+    }
+
+    public int getDeliveryCharge() {
+        return deliveryCharge;
+    }
+
+    public void setDeliveryCharge(int deliveryCharge) {
+        this.deliveryCharge = deliveryCharge;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public double getVat() {
+        return vat;
+    }
+
+    public void setVat(double vat) {
+        this.vat = vat;
+    }
+}

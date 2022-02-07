@@ -29,6 +29,7 @@ public class ProductViewModel extends ViewModel {
     public MutableLiveData<List<UserProductModel>> userProductListLiveData=new MutableLiveData<>();
     public MutableLiveData<List<CartModel>> cartListLiveData = new MutableLiveData<>();
     public List<CartModel> cartModelList = new ArrayList<>();
+    public String paymentMethod = UserConstants.PaymentMethod.COD;
 
     public ProductViewModel(){
         getAllCategories();
@@ -196,5 +197,20 @@ public class ProductViewModel extends ViewModel {
             total += c.getProductPrice() * c.getProductQuantity();
         }
         return total;
+    }
+
+    public void clearCart(String uid, List<CartModel> cartModels) {
+        final WriteBatch writeBatch = db.batch();
+        for (CartModel c : cartModels) {
+            final DocumentReference doc = db.collection(UserConstants.dbCollections.COLLECTION_USER)
+                    .document(uid)
+                    .collection(UserConstants.dbCollections.COLLECTION_CART)
+                    .document(c.getProductId());
+            writeBatch.delete(doc);
+        }
+        writeBatch.commit()
+                .addOnSuccessListener(unused -> {})
+                .addOnFailureListener(unused -> {});
+
     }
 }

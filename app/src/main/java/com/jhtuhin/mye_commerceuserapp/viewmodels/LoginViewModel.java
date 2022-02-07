@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.jhtuhin.mye_commerceuserapp.callbacks.OnActionCompleteListener;
 import com.jhtuhin.mye_commerceuserapp.models.UserModel;
 import com.jhtuhin.mye_commerceuserapp.utils.UserConstants;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -18,10 +19,17 @@ public class LoginViewModel extends ViewModel {
     public enum AuthState {
         AUTHENTICATED, UNAUTHENTICATED
     }
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private MutableLiveData<AuthState> authLiveData;
     private MutableLiveData<String> errMsgLiveData;
+    private MutableLiveData<UserModel> userModelMutableLiveData = new MutableLiveData<>();
     private FirebaseAuth auth;
     private FirebaseUser user;
+
+    public MutableLiveData<UserModel> getUserModelMutableLiveData() {
+        return userModelMutableLiveData;
+    }
+
 
     public LoginViewModel() {
         authLiveData = new MutableLiveData<>();
@@ -100,6 +108,33 @@ public class LoginViewModel extends ViewModel {
 
             }
         });
+    }
+
+    public void getUserData() {
+        final MutableLiveData<UserModel> userLiveData = new MutableLiveData<>();
+        db.collection(UserConstants.dbCollections.COLLECTION_USER)
+                .document(user.getUid())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    final UserModel userModel = documentSnapshot.toObject(UserModel.class);
+                    userModelMutableLiveData.postValue(userModel);
+                }).addOnFailureListener(e -> {
+
+        });
+
+    }
+
+    public void updateDeliveryAddress(String address, OnActionCompleteListener actionCompleteListener) {
+        final DocumentReference doc =
+                db.collection(UserConstants.dbCollections.COLLECTION_USER)
+                        .document(user.getUid());
+        doc.update("deliveryAddress", address)
+                .addOnSuccessListener(unused -> {
+                    actionCompleteListener.onSuccess();
+                })
+                .addOnFailureListener(unused -> {
+                    actionCompleteListener.onFailure();
+                });
     }
 
 }
